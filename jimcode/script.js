@@ -126,23 +126,66 @@ const study = lab.util.fromObject({
       "title": "Loop",
       "shuffleGroups": [],
       "template": {
-        "type": "lab.html.Screen",
-        "files": {
-          "1b.png": "embedded\u002Feec8b9cc268d5b4639bd605ba20f41c264709eb5be00d8a1a2524246b9f9c624.png",
-          "1a.png": "embedded\u002F44407357079e3ce59e92d9c72bcabc5b084b9aa806ff33200fc85044efb29e57.png",
-          "2b.png": "embedded\u002Fdcee23111dbd2f1d91dcd973fd0a7df1ee260697a9ebcc5a5598a5706a95c23c.png",
-          "2a.png": "embedded\u002F11dbc5c0c57bc63a673ead2b48aba9e09c1b8e76ecb0af2677811837e3908bee.png",
-          "3b.png": "embedded\u002F2821aaf56b7902cbece857dca0d80b7b5e234f639631775b288cf8bed959c601.png",
-          "3a.png": "embedded\u002Fa053e6dcacbe02992a5376cdc1e0a57d5128d853b4fdb6be6597c9f04c7a8176.png"
-        },
+        "type": "lab.flow.Sequence",
+        "files": {},
         "responses": {
-          "keypress(Space)": "continue"
+          "": ""
         },
         "parameters": {},
         "messageHandlers": {},
-        "title": "bradshaw code",
-        "content": "\u003Chead\u003E\n  \u003Cstyle\u003E\n    * {\n  background: #000 !important;\n  color: #0f0 !important;\n  outline: solid #f00 1px !important;\n}\n\n    #cf {\n      \n      position:relative;\n      margin:0 auto;\n      }\n    \n    #cf img {\n      \n      vertical-align: middle !important;\n      max-width: 100vw !important;\n      max-height: 100vh !important;\n      bottom: 0 !important;\n      left: 0 !important;\n      margin: auto;\n      overflow: auto;\n      position: absolute !important;\n      overflow-x: hidden;\n      right: 0 !important;\n      top: 0 !important;\n      -o-object-fit: contain;\n      object-fit: contain;\n      \n      -webkit-transition: opacity 2s ease-in-out;\n      -moz-transition: opacity 2s ease-in-out;\n      -o-transition: opacity 2s ease-in-out;\n      transition: opacity 2s ease-in-out;\n      }\n      \n\n      @keyframes cfFadeInOut {\n        0% {\n        opacity:1;\n        }\n        10% {\n        opacity:0.9;\n        }\n        20% {\n        opacity:0.8;\n        }\n        30% {\n        opacity:0.7;\n        }\n        40% {\n        opacity:0.6;\n        }\n        50% {\n        opacity:0.5;\n        }\n        60% {\n        opacity:0.4;\n        }\n        70% {\n        opacity:0.3;\n        }\n        80% {\n        opacity:0.2;\n        }\n        90% {\n        opacity:0.1;\n        }\n        100% {\n        opacity:0;\n        }\n      }\n\n    #cf img.top {\n    !important\n    animation-name: cfFadeInOut;\n    animation-timing-function: ease-in-out;\n    \u002F*animation-iteration-count: 1;*\u002F\n    animation-duration: 5s;\n    animation-direction: reverse;\n    }\n  \u003C\u002Fstyle\u003E\n\u003C\u002Fhead\u003E\n\n\u003Cmain\u003E\n  \u003Cdiv id=\"cf\"\u003E\n    \u003Cimg class=\"bottom row-full\" src=\"${this.files[this.parameters.a]}\"\u003E\n    \u003Cimg class=\"top row-full\" src=\"${this.files[this.parameters.b]}\"\u003E\n  \u003C\u002Fdiv\u003E\n\u003C\u002Fmain\u003E",
-        "timeout": "10000"
+        "title": "Trial",
+        "content": [
+          {
+            "type": "lab.html.Screen",
+            "files": {
+              "1b.png": "embedded\u002Feec8b9cc268d5b4639bd605ba20f41c264709eb5be00d8a1a2524246b9f9c624.png",
+              "1a.png": "embedded\u002F44407357079e3ce59e92d9c72bcabc5b084b9aa806ff33200fc85044efb29e57.png",
+              "2b.png": "embedded\u002Fdcee23111dbd2f1d91dcd973fd0a7df1ee260697a9ebcc5a5598a5706a95c23c.png",
+              "2a.png": "embedded\u002F11dbc5c0c57bc63a673ead2b48aba9e09c1b8e76ecb0af2677811837e3908bee.png",
+              "3b.png": "embedded\u002F2821aaf56b7902cbece857dca0d80b7b5e234f639631775b288cf8bed959c601.png",
+              "3a.png": "embedded\u002Fa053e6dcacbe02992a5376cdc1e0a57d5128d853b4fdb6be6597c9f04c7a8176.png"
+            },
+            "responses": {
+              "keypress(Space)": "continue"
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "cf keyframe transitions",
+            "content": "\u003Chead\u003E\n  \u003Cstyle\u003E\n    * {\n  background: #000;\n  color: #0f0;\n  outline: solid #f00 1px;\n}\n    \u002F* This makes the fixation cross *\u002F\n    #cross {\n      background: red;\n      height: 90px;\n      \u002F*position: relative;*\u002F\n      width: 10px;\n    }\n    #cross:after {\n      background: red;\n      content: \"\";\n      height: 10px;\n      left: -40px;\n      position: absolute;\n      top: 40px;\n      width: 90px;\n    }\n    .centered {\n      position: fixed;\n      top: 50%;\n      left: 50%;\n      \u002F* bring your own prefixes *\u002F\n      transform: translate(-50%, -50%);\n    }\n\n    \u002F* This makes the fading background images *\u002F\n    #cf {\n      position: absolute;\n      margin: auto;\n      }\n    \n    #cf img {\n      \n      vertical-align: middle !important;\n      horizontal-align: middle;\n      user-select: none;\n\n      width: 100vw !important;\n      height: 100vh !important;\n      \n      overflow: hidden;\n      position: absolute !important;\n      top: -50px; left: -50px;\n      margin: auto;\n      -o-object-fit: cover;\n      object-fit: cover;\n      \n      -webkit-transition: opacity 2s ease-in-out;\n      -moz-transition: opacity 2s ease-in-out;\n      -o-transition: opacity 2s ease-in-out;\n      transition: opacity 2s ease-in-out;\n      } \n\n      @keyframes cfFadeInOut {\n        0% {\n        opacity:1;\n        }\n        10% {\n        opacity:0.9;\n        }\n        20% {\n        opacity:0.8;\n        }\n        30% {\n        opacity:0.7;\n        }\n        40% {\n        opacity:0.6;\n        }\n        50% {\n        opacity:0.5;\n        }\n        60% {\n        opacity:0.4;\n        }\n        70% {\n        opacity:0.3;\n        }\n        80% {\n        opacity:0.2;\n        }\n        90% {\n        opacity:0.1;\n        }\n        100% {\n        opacity:0;\n        }\n      }\n\n    #cf .top {\n    animation-name: cfFadeInOut;\n    user-select: none;\n    user-drag: none; \n    animation-timing-function: ease-in-out;\n    \u002F*animation-iteration-count: 1;*\u002F\n    animation-duration: 100s;\n    animation-direction: reverse;\n    }\n  \u003C\u002Fstyle\u003E\n\u003C\u002Fhead\u003E\n\n\u003Cmain\u003E\n\n  \u003C!-- Display the fading background images --\u003E\n  \u003Cdiv id=\"cf\"\u003E\n    \u003Cimg class=\"bottom row-full\" src=\"${this.files[this.parameters.a]}\"\u003E\n    \u003Cimg class=\"top row-full\" src=\"${this.files[this.parameters.b]}\"\u003E\n  \u003C\u002Fdiv\u003E\n\n  \u003C!-- Display the fixation cross --\u003E\n  \u003Cdiv id=\"cross\" class=\"centered\"\u003E\u003C\u002Fdiv\u003E\n  \n\u003C\u002Fmain\u003E"
+          },
+          {
+            "type": "lab.html.Screen",
+            "files": {
+              "1b.png": "embedded\u002Feec8b9cc268d5b4639bd605ba20f41c264709eb5be00d8a1a2524246b9f9c624.png",
+              "1a.png": "embedded\u002F44407357079e3ce59e92d9c72bcabc5b084b9aa806ff33200fc85044efb29e57.png",
+              "2b.png": "embedded\u002Fdcee23111dbd2f1d91dcd973fd0a7df1ee260697a9ebcc5a5598a5706a95c23c.png",
+              "2a.png": "embedded\u002F11dbc5c0c57bc63a673ead2b48aba9e09c1b8e76ecb0af2677811837e3908bee.png",
+              "3b.png": "embedded\u002F2821aaf56b7902cbece857dca0d80b7b5e234f639631775b288cf8bed959c601.png",
+              "3a.png": "embedded\u002Fa053e6dcacbe02992a5376cdc1e0a57d5128d853b4fdb6be6597c9f04c7a8176.png"
+            },
+            "responses": {
+              "keypress(Space)": "continue"
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "try something newer",
+            "content": "\u003Chead\u003E\n  \u003Cstyle\u003E\n    * {\n  background: #000;\n  color: #0f0;\n  outline: solid #f00 1px;\n}\n    \u002F* This makes the fixation cross *\u002F\n    #cross {\n      background: red;\n      height: 100px;\n      \u002F*position: relative;*\u002F\n      width: 20px;\n    }\n    #cross:after {\n      background: red;\n      content: \"\";\n      height: 20px;\n      left: -40px;\n      position: absolute;\n      top: 40px;\n      width: 100px;\n    }\n    .centered {\n      position: fixed;\n      top: 50%;\n      left: 50%;\n      \u002F* bring your own prefixes *\u002F\n      transform: translate(-50%, -50%);\n    }\n\n\n    \u002F* This makes the fading background images *\u002F\n    #cf {\n      margin:0;\n      height:100%;\n      overflow:hidden;\n      }\n    \n    #cf img {\n      \n      width:auto;\n      height:auto;\n      max-width:100%;\n      max-height:100%;\n      \n      -webkit-transition: opacity 2s ease-in-out;\n      -moz-transition: opacity 2s ease-in-out;\n      -o-transition: opacity 2s ease-in-out;\n      transition: opacity 2s ease-in-out;\n      } \n\n      @keyframes cfFadeInOut {\n        0% {\n        opacity:1;\n        }\n        10% {\n        opacity:0.9;\n        }\n        20% {\n        opacity:0.8;\n        }\n        30% {\n        opacity:0.7;\n        }\n        40% {\n        opacity:0.6;\n        }\n        50% {\n        opacity:0.5;\n        }\n        60% {\n        opacity:0.4;\n        }\n        70% {\n        opacity:0.3;\n        }\n        80% {\n        opacity:0.2;\n        }\n        90% {\n        opacity:0.1;\n        }\n        100% {\n        opacity:0;\n        }\n      }\n\n\n    #cf .top {\n    animation-name: cfFadeInOut;\n    user-select: none;\n    user-drag: none; \n    animation-timing-function: ease-in-out;\n    \u002F*animation-iteration-count: 1;*\u002F\n    animation-duration: 100s;\n    animation-direction: reverse;\n    }\n    \n  \u003C\u002Fstyle\u003E\n\u003C\u002Fhead\u003E\n\n\u003Cmain\u003E\n\n  \u003C!-- Display the fading background images --\u003E\n  \u003Cdiv id=\"cf\"\u003E\n    \u003Cimg class=\"bottom row-full\" src=\"${this.files[this.parameters.a]}\"\u003E\n    \u003Cimg class=\"top row-full\" src=\"${this.files[this.parameters.b]}\"\u003E\n  \u003C\u002Fdiv\u003E\n\n  \u003C!-- Display the fixation cross --\u003E\n  \u003Cdiv id=\"cross\" class=\"centered\"\u003E\u003C\u002Fdiv\u003E\n  \n\u003C\u002Fmain\u003E"
+          },
+          {
+            "type": "lab.html.Screen",
+            "files": {
+              "plussign.png": "embedded\u002F6971654e10fa1d259e1b67652ebeffb58f122e9e41eece02c9b960530f6942fe.png"
+            },
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "Fixation Cross",
+            "content": "\u003Chead\u003E\n  \u003Cstyle\u003E\n   #cross {\n      background: red;\n      height: 90px;\n      \u002F*position: relative;*\u002F\n      width: 10px;\n    }\n    #cross:after {\n      background: red;\n      content: \"\";\n      height: 10px;\n      left: -40px;\n      position: absolute;\n      top: 40px;\n      width: 90px;\n    }\n    .centered {\n      position: fixed;\n      top: 50%;\n      left: 50%;\n      \u002F* bring your own prefixes *\u002F\n      transform: translate(-50%, -50%);\n    }\n  \u003C\u002Fstyle\u003E\n\u003C\u002Fhead\u003E\n\n\u003Cdiv id=\"cross\" class=\"centered\"\u003E\u003C\u002Fdiv\u003E\n\n\n",
+            "timeout": "1000"
+          }
+        ]
       }
     },
     {
@@ -168,6 +211,24 @@ const study = lab.util.fromObject({
       "parameters": {},
       "messageHandlers": {},
       "title": "Thanks for Participating!"
+    },
+    {
+      "type": "lab.html.Screen",
+      "files": {
+        "1b.png": "embedded\u002Feec8b9cc268d5b4639bd605ba20f41c264709eb5be00d8a1a2524246b9f9c624.png",
+        "1a.png": "embedded\u002F44407357079e3ce59e92d9c72bcabc5b084b9aa806ff33200fc85044efb29e57.png",
+        "2b.png": "embedded\u002Fdcee23111dbd2f1d91dcd973fd0a7df1ee260697a9ebcc5a5598a5706a95c23c.png",
+        "2a.png": "embedded\u002F11dbc5c0c57bc63a673ead2b48aba9e09c1b8e76ecb0af2677811837e3908bee.png",
+        "3b.png": "embedded\u002F2821aaf56b7902cbece857dca0d80b7b5e234f639631775b288cf8bed959c601.png",
+        "3a.png": "embedded\u002Fa053e6dcacbe02992a5376cdc1e0a57d5128d853b4fdb6be6597c9f04c7a8176.png"
+      },
+      "responses": {
+        "keypress(Space)": "continue"
+      },
+      "parameters": {},
+      "messageHandlers": {},
+      "title": "bradshaw code",
+      "content": "\u003Chead\u003E\n  \u003Cstyle\u003E\n    * {\n  background: #000;\n  color: #0f0;\n  outline: solid #f00 1px;\n}\n\n    #cf {\n      position: absolute;\n      margin:0 auto;\n      }\n    \n    #cf img {\n      \n      vertical-align: middle !important;\n      user-select: none;\n      width: 100vw !important;\n      height: 100vh !important;\n      top: 0 !important;\n      left: 0 !important;\n      margin: auto;\n      overflow: hidden;\n      position: fixed !important;\n      -o-object-fit: contain;\n      object-fit: contain;\n      \n      -webkit-transition: opacity 2s ease-in-out;\n      -moz-transition: opacity 2s ease-in-out;\n      -o-transition: opacity 2s ease-in-out;\n      transition: opacity 2s ease-in-out;\n      } \n\n#bg {\n  position: fixed; \n  top: -50%; \n  left: -50%; \n  width: 200%; \n  height: 200%;\n}\n#bg img {\n  position: absolute; \n  user-select: none;\n  top: 0; \n  left: 0; \n  right: 0; \n  bottom: 0; \n  width: auto;\n  height: auto;\n  margin: auto; \n  min-width: 50%;\n  min-height: 50%;\n  -webkit-transition: opacity 2s ease-in-out;\n  -moz-transition: opacity 2s ease-in-out;\n  -o-transition: opacity 2s ease-in-out;\n  transition: opacity 2s ease-in-out;\n}\n\n      @keyframes cfFadeInOut {\n        0% {\n        opacity:1;\n        }\n        10% {\n        opacity:0.9;\n        }\n        20% {\n        opacity:0.8;\n        }\n        30% {\n        opacity:0.7;\n        }\n        40% {\n        opacity:0.6;\n        }\n        50% {\n        opacity:0.5;\n        }\n        60% {\n        opacity:0.4;\n        }\n        70% {\n        opacity:0.3;\n        }\n        80% {\n        opacity:0.2;\n        }\n        90% {\n        opacity:0.1;\n        }\n        100% {\n        opacity:0;\n        }\n      }\n\n    #cf .top {\n    animation-name: cfFadeInOut;\n    user-select: none;\n    user-drag: none; \n    animation-timing-function: ease-in-out;\n    \u002F*animation-iteration-count: 1;*\u002F\n    animation-duration: 5s;\n    animation-direction: reverse;\n    }\n\n    #bg .top {\n    animation-name: cfFadeInOut;\n    user-select: none;\n    user-drag: none; \n    animation-timing-function: ease-in-out;\n    \u002F*animation-iteration-count: 1;*\u002F\n    animation-duration: 5s;\n    animation-direction: reverse;\n    }\n  \u003C\u002Fstyle\u003E\n\u003C\u002Fhead\u003E\n\n\u003Cmain\u003E\n  \n  \u003Cdiv id=\"bg\"\u003E\n    \u003Cimg class=\"bottom row-full\" src=\"${this.files[this.parameters.a]}\"\u003E\n    \u003Cimg class=\"top row-full\" src=\"${this.files[this.parameters.b]}\"\u003E\n  \u003C\u002Fdiv\u003E\n\u003C\u002Fmain\u003E"
     }
   ]
 })
